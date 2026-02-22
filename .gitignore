@@ -1,7 +1,16 @@
-bin/
+# Ignore compiled Java files
 *.class
+
+# Ignore logs
 *.log
+
+# Ignore JARs
 *.jar
+
+# IDE / editor files
 .vscode/
 .idea/
 .DS_Store
+
+# Ignore MySQL connector folder completely
+mysql-connector-j-9.6.0/
