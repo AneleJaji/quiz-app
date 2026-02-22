@@ -5,17 +5,17 @@ A comprehensive quiz application built with Java and MySQL featuring real-time q
 ## Features
 
 ### Core Features
-- ✅ **User Authentication**: Separate login for teachers and students
-- ✅ **Teacher Dashboard**: Create, manage, and delete quizzes
-- ✅ **Student Interface**: Browse and take available quizzes  
-- ✅ **Automatic Grading**: Instant scoring and feedback
-- ✅ **Results Storage**: All quiz attempts saved to database
+-  **User Authentication**: Separate login for teachers and students
+-  **Teacher Dashboard**: Create, manage, and delete quizzes
+-  **Student Interface**: Browse and take available quizzes  
+-  **Automatic Grading**: Instant scoring and feedback
+-  **Results Storage**: All quiz attempts saved to database
 
 ### Cool Add-ons
-- ⏱️ **Timer Per Question**: Configurable time limits for each question
-- 🏆 **Live Leaderboard**: Real-time ranking of top 10 performers
-- 📊 **Admin Dashboard**: View quiz statistics and student performance
-- 📈 **Student History**: Track all past quiz attempts
+-  **Timer Per Question**: Configurable time limits for each question
+-  **Live Leaderboard**: Real-time ranking of top 10 performers
+-  **Admin Dashboard**: View quiz statistics and student performance
+-  **Student History**: Track all past quiz attempts
 
 ## Technology Stack
 
@@ -60,79 +60,23 @@ Client-server application/
 
 ## Prerequisites
 
-1. **Java Development Kit (JDK)** 11 or higher
-   - Download from: https://www.oracle.com/java/technologies/downloads/
+1. **Java JDK** 11 or higher
 
 2. **MySQL Server** 8.0 or higher
-   - Download from: https://dev.mysql.com/downloads/mysql/
 
 3. **MySQL JDBC Driver** (mysql-connector-j-8.0.33.jar)
-   - Download from: https://dev.mysql.com/downloads/connector/j/
 
 ## Installation & Setup
 
-### Step 1: Database Setup
+1. Create the database: run `database/quiz_schema.sql` in MySQL.
+2. Edit src/server/DatabaseConnection.java with your MySQL credentials.
+3. Compile Java files:
+   javac -d bin -cp "lib/mysql-connector-j-8.0.33.jar" src/**/*.java
+4. Run the server:
+   java -cp "bin;lib/mysql-connector-j-8.0.33.jar" server.QuizServer
+5. Run the client:
+   java -cp "bin;lib/mysql-connector-j-8.0.33.jar" client.LoginGUI
 
-1. Start MySQL server
-2. Open MySQL command line or MySQL Workbench
-3. Run the database schema:
-   ```bash
-   mysql -u root -p < database/quiz_schema.sql
-   ```
-   Or manually execute the SQL file in MySQL Workbench
-
-4. Verify database creation:
-   ```sql
-   USE quiz_system;
-   SHOW TABLES;
-   ```
-
-### Step 2: Configure Database Connection
-
-Edit `src/server/DatabaseConnection.java` and update:
-```java
-private static final String USER = "root";
-private static final String PASSWORD = "your_mysql_password";
-```
-
-### Step 3: Download MySQL JDBC Driver
-
-1. Download MySQL Connector/J from https://dev.mysql.com/downloads/connector/j/
-2. Extract and copy `mysql-connector-j-8.0.33.jar` to the `lib/` directory
-
-### Step 4: Compile the Project
-
-#### Windows (PowerShell):
-```powershell
-# Compile all Java files
-javac -d bin -cp "lib/mysql-connector-j-8.0.33.jar" src/common/*.java src/model/*.java src/server/*.java src/client/*.java
-```
-
-#### Linux/Mac:
-```bash
-# Compile all Java files
-javac -d bin -cp "lib/mysql-connector-j-8.0.33.jar" src/common/*.java src/model/*.java src/server/*.java src/client/*.java
-```
-
-### Step 5: Run the Application
-
-#### Start the Server:
-```powershell
-# Windows
-java -cp "bin;lib/mysql-connector-j-8.0.33.jar" server.QuizServer
-
-# Linux/Mac
-java -cp "bin:lib/mysql-connector-j-8.0.33.jar" server.QuizServer
-```
-
-#### Start the Client:
-```powershell
-# Windows (Open new terminal)
-java -cp "bin;lib/mysql-connector-j-8.0.33.jar" client.LoginGUI
-
-# Linux/Mac
-java -cp "bin:lib/mysql-connector-j-8.0.33.jar" client.LoginGUI
-```
 
 ## Default Login Credentials
 
@@ -245,13 +189,11 @@ The system uses a custom text-based protocol over TCP sockets:
 
 ## Future Enhancements
 
-- 🔐 Password encryption (bcrypt/hash)
-- 📝 Question categories and difficulty levels
-- 📊 Advanced analytics and reports
-- 🖼️ Support for images in questions
-- 📱 Mobile client support
-- 🌐 Web-based interface
-- 💾 Export results to PDF/Excel
+-  Password encryption (bcrypt/hash)
+-  Question categories and difficulty levels
+-  Advanced analytics and reports
+-  Web-based interface
+-  Export results to PDF/Excel
 
 ## Contributing
 
@@ -267,4 +209,4 @@ For questions or support, please open an issue in the repository.
 
 ---
 
-**Developed with ❤️ using Java and MySQL**
+**Developed with love using Java and MySQL**
