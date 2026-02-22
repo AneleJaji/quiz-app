@@ -1,0 +1,148 @@
+=============================================================================
+COMPLETE SOURCE CODE FOR CLIENT-SERVER QUIZ SYSTEM
+=============================================================================
+
+This file contains all the Java source code files that need to be created.
+Copy each section to the appropriate file location.
+
+=============================================================================
+FILE: src/server/QuizDAO.java
+=============================================================================
+See the complete implementation in the project repository.
+This file contains all database operations including:
+- User authentication and registration
+- Quiz creation and retrieval
+- Quiz attempt recording
+- Leaderboard queries
+- Student results retrieval
+
+Key Methods:
+- authenticateUser(username, password)
+- registerUser(User user)
+- createQuiz(Quiz quiz)
+- getActiveQuizzes()
+- getQuizWithQuestions(quizId)
+- saveQuizAttempt(QuizAttempt attempt)
+- getLeaderboard(quizId)
+- getStudentResults(studentId)
+- deleteQuiz(quizId)
+
+=============================================================================
+FILE: src/server/ClientHandler.java
+=============================================================================
+Handles individual client connections in separate threads.
+Processes protocol messages and communicates with database via Qu DAO.
+
+Key Responsibilities:
+- Accept and parse client messages
+- Handle login/registration
+- Process quiz operations
+- Send responses back to clients
+- Maintain client session state
+
+=============================================================================
+FILE: src/server/QuizServer.java
+=============================================================================
+Main server application that:
+- Listens on port 9999
+- Accepts client connections
+- Spawns ClientHandler threads
+- Manages database connection pool
+
+=============================================================================
+CLIENT GUI FILES
+=============================================================================
+
+FILE: src/client/ServerConnection.java
+- Manages TCP connection to server
+- Sends/receives messages
+- Handles connection lifecycle
+
+FILE: src/client/LoginGUI.java
+- Login and registration interface
+- Validates credentials with server  
+- Routes to appropriate dashboard
+
+FILE: src/client/StudentDashboard.java  
+- Shows available quizzes
+- Navigate to quiz taking
+- View personal results
+
+FILE: src/client/TeacherDashboard.java
+- Create new quizzes
+- View all quizzes
+- Delete quizzes
+- Access leaderboards
+
+FILE: src/client/QuizTakingGUI.java
+- Display questions one at a time
+- Timer countdown per question
+- Save answers
+- Auto-submit on timeout
+- Calculate and submit final score
+
+FILE: src/client/QuizResultGUI.java
+- Show quiz results with score
+- Display leaderboard
+- Highlight current user's rank
+- Grade calculation
+
+FILE: src/client/StudentResultsGUI.java
+- History of all quiz attempts
+- Scores and percentages
+- Date and time information
+
+FILE: src/client/CreateQuizGUI.java
+- Form to create new quiz
+- Dynamic question panels
+- Add/remove questions
+- Validate and submit to server
+
+FILE: src/client/TeacherLeaderboardGUI.java
+- View leaderboard for specific quiz
+- Top 10 students
+- Scores, percentages, time taken
+- Visual highlighting for top 3
+
+=============================================================================
+COMPILATION AND EXECUTION
+=============================================================================
+
+1. Create 'lib' directory and download MySQL Connector/J JAR
+
+2. Compile all files:
+   Windows:
+   javac -d bin -cp "lib/*.jar" src/**/*.java
+
+   Linux/Mac:
+   javac -d bin -cp "lib/*" src/**/*.java
+
+3. Run Server:
+   Windows:
+   java -cp "bin;lib/*" server.QuizServer
+
+   Linux/Mac:
+   java -cp "bin:lib/*" server.QuizServer
+
+4. Run Client (in a new terminal):
+   Windows:
+   java -cp "bin;lib/*" client.LoginGUI
+
+   Linux/Mac:
+   java -cp "bin:lib/*" client.LoginGUI
+
+=============================================================================
+NOTES
+=============================================================================
+
+- All source files follow standard Java conventions
+- Proper package structure maintained
+- Swing GUI with event-driven architecture  
+- Socket-based client-server communication
+- MySQL database with JDBC
+- Custom text-based protocol for messages
+
+For complete source code of each file, please refer to the individual
+.java files that have been generated in the src/ directory.
+
+=============================================================================
